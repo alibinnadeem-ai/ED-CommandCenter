@@ -187,8 +187,8 @@ option{background:var(--surf2);}
 
 <!-- HIPAA BANNER -->
 <div class="hipaa">
-  <div class="hbg"><div class="hdot"></div>HIPAA-COMPLIANT DEMO</div>
-  <span style="color:var(--yel)">⚠ DEMO ONLY · NO REAL PATIENT DATA · WORKFLOW ONLY · NO AUTO-ORDERS</span>
+  <div class="hbg"><div class="hdot"></div>HIPAA-COMPLIANT WORKFLOW</div>
+  <span style="color:var(--yel)">⚠ VERIFY DATA AT BEDSIDE · WORKFLOW ONLY · NO AUTO-ORDERS</span>
   <div class="hbg">TLS 1.3 · AES-256 · AUDIT LOGGED</div>
 </div>
 
@@ -266,9 +266,9 @@ option{background:var(--surf2);}
 
       <div class="fsec">Patient Identification</div>
       <div class="fg2">
-        <div class="fg"><label class="fl">Initials * (e.g. J.S.)</label><input class="fi" id="f-init" placeholder="J.S." maxlength="8"></div>
-        <div class="fg"><label class="fl">Bed Number *</label><input class="fi" id="f-bed" placeholder="12" maxlength="6"></div>
-        <div class="fg"><label class="fl">Age</label><input class="fi" id="f-age" placeholder="45" type="number" min="0" max="130"></div>
+        <div class="fg"><label class="fl">Initials *</label><input class="fi" id="f-init" maxlength="8"></div>
+        <div class="fg"><label class="fl">Bed Number *</label><input class="fi" id="f-bed" maxlength="20"></div>
+        <div class="fg"><label class="fl">Age</label><input class="fi" id="f-age" type="number" min="0" max="130"></div>
         <div class="fg"><label class="fl">Sex</label>
           <select class="fsl" id="f-sex"><option value="">Select...</option><option>M</option><option>F</option><option>X</option></select></div>
       </div>
@@ -285,83 +285,35 @@ option{background:var(--surf2);}
             <option value="5">5 — Non-urgent</option>
           </select></div>
         <div class="fg"><label class="fl">Arrival Mode</label>
-          <select class="fsl" id="f-arr"><option>Walk-in</option><option>EMS</option><option>Transfer</option><option>Private Vehicle</option></select></div>
+          <select class="fsl" id="f-arr"><option value="">None</option></select></div>
         <div class="fg"><label class="fl">Location</label>
-          <select class="fsl" id="f-loc"><option>Main ED</option><option>Fast Track</option><option>Waiting Room</option><option>Triage</option><option>Trauma Bay</option></select></div>
+          <select class="fsl" id="f-loc"><option value="">None</option></select></div>
       </div>
 
       <div class="fsec">Chief Complaint</div>
       <div class="fg2">
         <div class="fg"><label class="fl">Category</label>
-          <select class="fsl" id="f-cc">
-            <option value="">Select...</option>
-            <option value="🫀 Chest / Cardiac">🫀 Chest / Cardiac</option>
-            <option value="🧠 Neuro / AMS">🧠 Neuro / AMS</option>
-            <option value="🔍 Abdominal">🔍 Abdominal</option>
-            <option value="🫁 Respiratory">🫁 Respiratory</option>
-            <option value="🩹 Trauma / Lac">🩹 Trauma / Lac</option>
-            <option value="🦵 MSK / Ortho">🦵 MSK / Ortho</option>
-            <option value="💊 HTN / HA">💊 HTN / HA</option>
-            <option value="🤒 Fever / Infx">🤒 Fever / Infx</option>
-            <option value="⚡ Seizure">⚡ Seizure</option>
-            <option value="🩺 Other">🩺 Other</option>
-          </select></div>
-        <div class="fg"><label class="fl">Detail (no PHI)</label><input class="fi" id="f-ccn" placeholder="e.g. Chest pain radiating to jaw"></div>
+          <select class="fsl" id="f-cc"><option value="">None</option></select></div>
+        <div class="fg"><label class="fl">Detail (no PHI)</label><input class="fi" id="f-ccn"></div>
       </div>
 
       <div class="fsec">Clinical Workflow</div>
       <div class="fg2">
         <div class="fg"><label class="fl">Owner</label>
-          <select class="fsl" id="f-own"><option>MD</option><option>PA</option><option>RN</option><option>CHG</option></select></div>
-        <div class="fg"><label class="fl">Next Milestone</label><input class="fi" id="f-mile" placeholder="e.g. Delta trop #2 ≈ 20:15"></div>
+          <select class="fsl" id="f-own"><option value="">None</option></select></div>
+        <div class="fg"><label class="fl">Next Milestone</label><input class="fi" id="f-mile"></div>
         <div class="fg"><label class="fl">Labs Ordered</label>
-          <select class="fsl" id="f-labs">
-            <option value="None">None</option>
-            <option>BMP + CBC</option>
-            <option>CMP + CBC + Troponin</option>
-            <option>Lactate + BC x2</option>
-            <option>UA + UPT</option>
-            <option>D-Dimer + BNP</option>
-            <option>Full sepsis panel</option>
-            <option>LFTs + Lipase</option>
-            <option>Coags + CBC</option>
-            <option>Pending</option>
-          </select></div>
+          <select class="fsl" id="f-labs"><option value="">None</option></select></div>
         <div class="fg"><label class="fl">Imaging Ordered</label>
-          <select class="fsl" id="f-img">
-            <option value="None">None</option>
-            <option>CXR</option>
-            <option>CT Head</option>
-            <option>CT A/P</option>
-            <option>CT PE Protocol</option>
-            <option>CT Spine</option>
-            <option>RUQ US</option>
-            <option>Pelvic US</option>
-            <option>XR Extremity</option>
-            <option>Echo</option>
-            <option>Pending</option>
-          </select></div>
+          <select class="fsl" id="f-img"><option value="">None</option></select></div>
       </div>
 
       <div class="fsec">Risk Flags <span style="color:var(--dim);font-size:9px;font-weight:400">(click to toggle on/off)</span></div>
-      <div class="fpk">
-        <span class="fo fo-r" data-flag="ACS/PE" onclick="tog(this)">ACS/PE</span>
-        <span class="fo fo-r" data-flag="STROKE!" onclick="tog(this)">STROKE!</span>
-        <span class="fo fo-r" data-flag="SEPSIS" onclick="tog(this)">SEPSIS</span>
-        <span class="fo fo-r" data-flag="TRAUMA" onclick="tog(this)">TRAUMA</span>
-        <span class="fo fo-o" data-flag="ECTOPIC?" onclick="tog(this)">ECTOPIC?</span>
-        <span class="fo fo-o" data-flag="AMS RISK" onclick="tog(this)">AMS RISK</span>
-        <span class="fo fo-o" data-flag="SEPSIS RISK" onclick="tog(this)">SEPSIS RISK</span>
-        <span class="fo fo-y" data-flag="G1P0" onclick="tog(this)">G1P0</span>
-        <span class="fo fo-y" data-flag="ANTICOAG" onclick="tog(this)">ANTICOAG</span>
-        <span class="fo fo-p" data-flag="ANTICOAG?" onclick="tog(this)">ANTICOAG?</span>
-        <span class="fo fo-c" data-flag="FAST DISPO" onclick="tog(this)">FAST DISPO</span>
-        <span class="fo fo-g" data-flag="DISPO READY" onclick="tog(this)">DISPO READY</span>
-      </div>
+      <div class="fpk" id="risk-flags"></div>
 
       <div class="fsec" style="margin-top:12px">Workflow Notes</div>
       <div class="fg"><label class="fl">Notes — NO PHI (no names, DOB, MRN)</label>
-        <textarea class="fta" id="f-notes" placeholder="Workflow notes only — e.g. Lactate 4.2, CT unread, awaiting neurology callback..."></textarea></div>
+        <textarea class="fta" id="f-notes" placeholder="Workflow notes only. Do not include names, DOB, MRN, or other PHI."></textarea></div>
     </div>
     <div class="mf">
       <button class="fbtn fd" id="del-btn" style="display:none;margin-right:auto" onclick="delPt()">🗑 Discharge / Remove</button>
@@ -387,65 +339,182 @@ option{background:var(--surf2);}
 // ============================================================
 // STATE
 // ============================================================
-var pts = [
-  {id:1,init:'J.S.',bed:'12',age:77,sex:'F',esi:2,loc:'Main ED',arr:'EMS',
-   cc:'🫀 Chest / Cardiac',ccn:'Chest pain radiating to jaw, diaphoretic',own:'MD',
-   mile:'Delta trop #2 + EKG repeat ≈ 19:55',labs:'CMP + CBC + Troponin',img:'CT PE Protocol',
-   flags:['ACS/PE','ANTICOAG','AMS RISK'],notes:'High risk ACS. INR 3.1. CT pending read.',
-   t:Date.now()-138*60000},
-  {id:2,init:'R.T.',bed:'4',age:77,sex:'F',esi:2,loc:'Main ED',arr:'EMS',
-   cc:'🧠 Neuro / AMS',ccn:'AMS, stroke symptoms, L-sided weakness',own:'MD',
-   mile:'CT head read + Lactate #2 OVERDUE',labs:'Full sepsis panel',img:'CT Head',
-   flags:['STROKE!','SEPSIS','ANTICOAG'],notes:'Lactate 4.2 CRITICAL. Neuro no callback 30m+.',
-   t:Date.now()-142*60000},
-  {id:3,init:'M.K.',bed:'7',age:28,sex:'F',esi:3,loc:'Main ED',arr:'Walk-in',
-   cc:'🔍 Abdominal',ccn:'RLQ pain, positive UPT, no US yet',own:'PA',
-   mile:'RUQ US result + UA',labs:'UA + UPT',img:'RUQ US',
-   flags:['ECTOPIC?','G1P0'],notes:'Ectopic rule-out. UPT positive. US pending — priority.',
-   t:Date.now()-42*60000},
-  {id:4,init:'A.B.',bed:'15',age:34,sex:'M',esi:4,loc:'Fast Track',arr:'Walk-in',
-   cc:'🩹 Trauma / Lac',ccn:'2cm lac R forearm, repair needed',own:'RN',
-   mile:'Repair + tetanus + AVS ≈ 20:30',labs:'None',img:'None',
-   flags:['ANTICOAG?','FAST DISPO'],notes:'Simple repair. Verify anticoag before discharge.',
-   t:Date.now()-28*60000},
-  {id:5,init:'D.W.',bed:'9',age:52,sex:'M',esi:3,loc:'Main ED',arr:'Private Vehicle',
-   cc:'🫁 Respiratory',ccn:'Fever 38.9, SOB, productive cough',own:'MD',
-   mile:'Lactate + BC x2 results',labs:'Lactate + BC x2',img:'CXR',
-   flags:['SEPSIS RISK'],notes:'Possible pneumonia with SIRS criteria.',
-   t:Date.now()-65*60000},
-  {id:6,init:'L.P.',bed:'3',age:41,sex:'F',esi:3,loc:'Main ED',arr:'Walk-in',
-   cc:'💊 HTN / HA',ccn:'BP 210/120, headache, no focal neuro deficits',own:'MD',
-   mile:'BP recheck post-medication',labs:'BMP + CBC',img:'None',
-   flags:['FAST DISPO','DISPO READY'],notes:'BP controlled post-labetalol. Near dispo.',
-   t:Date.now()-55*60000},
-  {id:7,init:'K.M.',bed:'11',age:29,sex:'M',esi:4,loc:'Fast Track',arr:'Walk-in',
-   cc:'🦵 MSK / Ortho',ccn:'Ankle sprain, R/O fracture',own:'PA',
-   mile:'XR result read',labs:'None',img:'XR Extremity',
-   flags:['FAST DISPO'],notes:'Ottawa negative. XR ordered. Fast track.',
-   t:Date.now()-22*60000}
-];
-var nid=8, tab='all', filt='all', sel=null, eid=null;
+var API_BASE='/api/ed-command-center';
+var pts=[], config=emptyConfig(), tab='all', filt='all', sel=null, eid=null;
+var loading=true, loadError=null;
 
 // ============================================================
 // HELPERS
 // ============================================================
-function emin(t){return Math.floor((Date.now()-t)/60000);}
+function emptyConfig(){
+  return {
+    arrivalMethods:[],
+    chiefComplaints:[],
+    imagingOptions:[],
+    labOptions:[],
+    locations:[],
+    ownerRoles:[],
+    riskFlags:[]
+  };
+}
+function normalizeConfig(c){
+  c=c||{};
+  return {
+    arrivalMethods:Array.isArray(c.arrivalMethods)?c.arrivalMethods:[],
+    chiefComplaints:Array.isArray(c.chiefComplaints)?c.chiefComplaints:[],
+    imagingOptions:Array.isArray(c.imagingOptions)?c.imagingOptions:[],
+    labOptions:Array.isArray(c.labOptions)?c.labOptions:[],
+    locations:Array.isArray(c.locations)?c.locations:[],
+    ownerRoles:Array.isArray(c.ownerRoles)?c.ownerRoles:[],
+    riskFlags:Array.isArray(c.riskFlags)?c.riskFlags:[]
+  };
+}
+function mapPatient(p){
+  var arrived=Date.parse(p.arrivedAt);
+  var flags=Array.isArray(p.riskFlags)?p.riskFlags:[];
+  return {
+    id:p.id,
+    init:p.initials||'',
+    bed:p.bedNumber||'',
+    age:p.age,
+    sex:p.sex||'',
+    esi:p.esiLevel,
+    locId:p.locationId||'',
+    loc:p.location?p.location.label:'',
+    locMeta:p.location||null,
+    arrId:p.arrivalMethodId||'',
+    arr:p.arrivalMethod?p.arrivalMethod.label:'',
+    ccId:p.chiefComplaintId||'',
+    cc:p.chiefComplaint?p.chiefComplaint.label:'',
+    ccn:p.chiefComplaintDetail||'',
+    ownId:p.ownerRoleId||'',
+    own:p.ownerRole?(p.ownerRole.code||p.ownerRole.label):'',
+    ownLabel:p.ownerRole?p.ownerRole.label:'',
+    mile:p.nextMilestone||'',
+    labId:p.labOptionId||'',
+    labs:p.labOption?p.labOption.label:'',
+    imgId:p.imagingOptionId||'',
+    img:p.imagingOption?p.imagingOption.label:'',
+    flagIds:flags.map(function(f){return f.id;}),
+    flagMeta:flags,
+    flags:flags.map(function(f){return f.label;}),
+    notes:p.notes||'',
+    t:Number.isFinite(arrived)?arrived:Date.now()
+  };
+}
+function emin(t){return Math.max(0,Math.floor((Date.now()-t)/60000));}
 function etime(t){var m=emin(t);return pad(Math.floor(m/60))+':'+pad(m%60);}
 function pad(n){return String(n).padStart(2,'0');}
 function esc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
-function isSepsis(p){return p.flags.includes('SEPSIS')||p.flags.includes('SEPSIS RISK');}
-function fcls(f){
-  if(['ACS/PE','STROKE!','SEPSIS','TRAUMA'].includes(f))return'ftr';
-  if(['ECTOPIC?','AMS RISK','SEPSIS RISK'].includes(f))return'fto';
-  if(['G1P0','ANTICOAG'].includes(f))return'fty';
-  if(['ANTICOAG?'].includes(f))return'ftp';
-  if(['FAST DISPO','DISPO READY'].includes(f))return'ftc';
+function escAttr(s){return esc(s).replace(/"/g,'&quot;').replace(/'/g,'&#39;');}
+function jsArg(s){return escAttr(JSON.stringify(String(s||'')));}
+function norm(s){return String(s||'').toLowerCase();}
+function hasWatch(p,key){
+  var target=norm(key);
+  return (p.flagMeta||[]).some(function(f){return norm(f.watchKey)===target||norm(f.code)===target;});
+}
+function isSepsis(p){return hasWatch(p,'sepsis');}
+function isStroke(p){return hasWatch(p,'stroke');}
+function isFastDispo(p){return hasWatch(p,'fast_dispo')||hasWatch(p,'dispo_ready');}
+function isWaiting(p){return Boolean(p.locMeta&&p.locMeta.isWaitingArea);}
+function toneDisplayClass(tone){
+  var t=norm(tone);
+  if(t==='critical')return'ftr';
+  if(t==='high')return'fto';
+  if(t==='info')return'ftp';
+  if(t==='throughput')return'ftc';
+  if(t==='success')return'ftg';
   return'fty';
 }
-function rfc(f){
-  if(['ACS/PE','STROKE!','SEPSIS','TRAUMA'].includes(f))return'rf-r';
-  if(['ECTOPIC?','AMS RISK','SEPSIS RISK'].includes(f))return'rf-o';
+function toneRiskClass(tone){
+  var t=norm(tone);
+  if(t==='critical')return'rf-r';
+  if(t==='high')return'rf-o';
   return'rf-y';
+}
+function tonePickerClass(tone){
+  var t=norm(tone);
+  if(t==='critical')return'fo-r';
+  if(t==='high')return'fo-o';
+  if(t==='info')return'fo-p';
+  if(t==='throughput')return'fo-c';
+  if(t==='success')return'fo-g';
+  return'fo-y';
+}
+function flagBadge(flag, big){
+  return '<span class="ft '+toneDisplayClass(flag.tone)+'"'+(big?' style="font-size:10px;padding:3px 7px"':'')+'>'+esc(flag.label)+'</span>';
+}
+function ownerClass(p){return 'o'+String(p.own||'').replace(/[^a-z0-9_-]/gi,'');}
+function patientLabel(p){return (p.ccn||p.cc||'Uncategorized');}
+function pendingLabel(p){return (p.labs||'No labs selected')+' | '+(p.img||'No imaging selected');}
+
+// ============================================================
+// API
+// ============================================================
+async function loadBoard(silent){
+  if(!silent){loading=true;loadError=null;refresh();}
+  try{
+    var res=await fetch(API_BASE,{cache:'no-store'});
+    var data=await res.json().catch(function(){return{};});
+    if(!res.ok)throw new Error(data.error&&data.error.message?data.error.message:'Unable to load command center data.');
+    config=normalizeConfig(data.config);
+    pts=(Array.isArray(data.patients)?data.patients:[]).map(mapPatient);
+    loading=false; loadError=null;
+    applyConfig();
+    if(sel&&!pts.some(function(p){return p.id===sel;}))clearSelection();
+    refresh();
+    if(sel)selPt(sel);
+  }catch(err){
+    loading=false;
+    loadError=err&&err.message?err.message:'Unable to load command center data.';
+    pts=[];
+    refresh();
+    clearSelection(loadError);
+  }
+}
+async function apiRequest(url,options){
+  options=options||{};
+  options.headers=Object.assign({'Content-Type':'application/json'},options.headers||{});
+  var res=await fetch(url,options);
+  var data=await res.json().catch(function(){return{};});
+  if(!res.ok)throw new Error(data.error&&data.error.message?data.error.message:'Request failed.');
+  return data;
+}
+
+// ============================================================
+// CONFIG UI
+// ============================================================
+function applyConfig(){
+  fillSelect('f-arr',config.arrivalMethods,'None');
+  fillSelect('f-loc',config.locations,'None');
+  fillSelect('f-cc',config.chiefComplaints,'None');
+  fillSelect('f-own',config.ownerRoles,'None');
+  fillSelect('f-labs',config.labOptions,'None');
+  fillSelect('f-img',config.imagingOptions,'None');
+  renderRiskFlagPicker();
+}
+function fillSelect(id,options,emptyLabel){
+  var select=document.getElementById(id);
+  if(!select)return;
+  var current=select.value;
+  select.innerHTML='';
+  select.appendChild(new Option(emptyLabel,''));
+  options.forEach(function(option){
+    select.appendChild(new Option(option.label,option.id));
+  });
+  select.value=current;
+}
+function renderRiskFlagPicker(){
+  var el=document.getElementById('risk-flags');
+  if(!el)return;
+  var activeIds=Array.prototype.map.call(el.querySelectorAll('.fo.on'),function(node){return node.dataset.flagId;});
+  if(!config.riskFlags.length){
+    el.innerHTML='<span class="fl">Seed risk flags in the database to enable toggles.</span>';
+    return;
+  }
+  el.innerHTML=config.riskFlags.map(function(flag){
+    return '<span class="fo '+tonePickerClass(flag.tone)+(activeIds.includes(flag.id)?' on':'')+'" data-flag-id="'+escAttr(flag.id)+'" onclick="tog(this)">'+esc(flag.label)+'</span>';
+  }).join('');
 }
 
 // ============================================================
@@ -460,40 +529,52 @@ setInterval(tick,1000); tick();
 function upStats(){
   document.getElementById('h-tot').textContent=pts.length;
   document.getElementById('h-e12').textContent=pts.filter(function(p){return p.esi<=2;}).length;
-  document.getElementById('h-wt').textContent=pts.filter(function(p){return p.loc==='Waiting Room';}).length;
-  document.getElementById('h-pd').textContent=pts.filter(function(p){return p.labs!=='None'||p.img!=='None';}).length;
+  document.getElementById('h-wt').textContent=pts.filter(isWaiting).length;
+  document.getElementById('h-pd').textContent=pts.filter(function(p){return Boolean(p.labs||p.img);}).length;
   document.getElementById('h-sep').textContent=pts.filter(isSepsis).length;
-  document.getElementById('h-fd').textContent=pts.filter(function(p){return p.flags.includes('FAST DISPO')||p.flags.includes('DISPO READY');}).length;
+  document.getElementById('h-fd').textContent=pts.filter(isFastDispo).length;
 }
 
 // ============================================================
 // RISK BAR
 // ============================================================
 function upRisk(){
+  if(loading){
+    document.getElementById('rbar').innerHTML='<div class="rc" style="flex:1"><div class="rrk">LOADING</div><div class="rpt">Connecting to command center data...</div></div>';
+    return;
+  }
+  if(loadError){
+    document.getElementById('rbar').innerHTML='<div class="rc rc-o" style="flex:1"><div class="rrk"><span class="rno rno-o">!</span>DATABASE</div><div class="rpt">'+esc(loadError)+'</div><div class="ri">Add DATABASE_URL and run npm run db:migrate.</div></div>';
+    return;
+  }
   var hi=pts.filter(function(p){return p.esi<=2;}).sort(function(a,b){return emin(b.t)-emin(a.t);}).slice(0,3);
   var cols=[['rc-r','rno-r'],['rc-o','rno-o'],['rc-y','rno-y']];
   var h='';
   hi.forEach(function(p,i){
     var c=cols[i]||cols[2];
-    h+='<div class="rc '+c[0]+'" style="cursor:pointer" onclick="selPt('+p.id+')">'
+    h+='<div class="rc '+c[0]+'" style="cursor:pointer" onclick="selPt('+jsArg(p.id)+')">'
       +'<div class="rrk"><span class="rno '+c[1]+'">'+(i+1)+'</span>TOP RISK #'+(i+1)+'</div>'
       +'<div class="rpt">'+esc(p.init)+' / Bed '+esc(p.bed)+'</div>'
-      +'<div class="ri">'+esc(p.ccn||p.cc)+'</div>'
-      +p.flags.map(function(f){return'<span class="rf '+rfc(f)+'">'+f+'</span>';}).join('')
+      +'<div class="ri">'+esc(patientLabel(p))+'</div>'
+      +p.flagMeta.map(function(f){return'<span class="rf '+toneRiskClass(f.tone)+'">'+esc(f.label)+'</span>';}).join('')
       +'</div>';
   });
-  var dl=pts.filter(function(p){return p.flags.includes('FAST DISPO')||p.flags.includes('DISPO READY');});
+  var dl=pts.filter(isFastDispo);
   var seps=pts.filter(isSepsis);
   h+='<div class="rc" style="flex:2;background:var(--surf2)">'
     +'<div class="rrk" style="margin-bottom:3px">⚡ RISK SUMMARY — AI WORKFLOW ASSIST ONLY</div>'
-    +'<div style="font-family:var(--mono);font-size:10px;line-height:1.8">'
-    +pts.filter(function(p){return p.esi<=2;}).map(function(p,i){
+    +'<div style="font-family:var(--mono);font-size:10px;line-height:1.8">';
+  if(pts.length){
+    h+=pts.filter(function(p){return p.esi<=2;}).map(function(p,i){
       var cs=['var(--red)','var(--org)','var(--yel)'];
-      return'<span style="color:'+(cs[i]||'var(--dim)')+'">Bed '+esc(p.bed)+'</span> — '+esc(p.ccn||p.cc)+'<br>';
+      return'<span style="color:'+(cs[i]||'var(--dim)')+'">Bed '+esc(p.bed)+'</span> — '+esc(patientLabel(p))+'<br>';
     }).join('')
-    +(seps.length?'<span style="color:var(--red)">Sepsis watch: '+seps.map(function(p){return'Bed '+p.bed;}).join(', ')+'</span><br>':'')
-    +(dl.length?'<span style="color:var(--grn)">Fast dispo: '+dl.map(function(p){return'Bed '+p.bed;}).join(', ')+'</span>':'')
-    +'</div></div>';
+    +(seps.length?'<span style="color:var(--red)">Sepsis watch: '+seps.map(function(p){return'Bed '+esc(p.bed);}).join(', ')+'</span><br>':'')
+    +(dl.length?'<span style="color:var(--grn)">Fast dispo: '+dl.map(function(p){return'Bed '+esc(p.bed);}).join(', ')+'</span>':'');
+  }else{
+    h+='No active patients on board. Seed lookup data, then add patients.';
+  }
+  h+='</div></div>';
   document.getElementById('rbar').innerHTML=h;
 }
 
@@ -503,32 +584,40 @@ function upRisk(){
 function getList(){
   var l=pts.slice();
   if(tab==='e12') l=l.filter(function(p){return p.esi<=2;});
-  else if(tab==='pend') l=l.filter(function(p){return p.labs!=='None'||p.img!=='None';});
-  else if(tab==='dispo') l=l.filter(function(p){return p.flags.includes('DISPO READY')||p.flags.includes('FAST DISPO');});
+  else if(tab==='pend') l=l.filter(function(p){return Boolean(p.labs||p.img);});
+  else if(tab==='dispo') l=l.filter(isFastDispo);
   if(filt==='sick') l.sort(function(a,b){return a.esi-b.esi;});
-  else if(filt==='fast') l=l.filter(function(p){return p.flags.includes('FAST DISPO')||p.flags.includes('DISPO READY');});
+  else if(filt==='fast') l=l.filter(isFastDispo);
   else if(filt==='over') l=l.filter(function(p){return emin(p.t)>90;});
   else if(filt==='sep') l=l.filter(isSepsis);
-  else if(filt==='labs') l=l.filter(function(p){return p.labs!=='None';});
-  else if(filt==='img') l=l.filter(function(p){return p.img!=='None';});
+  else if(filt==='labs') l=l.filter(function(p){return Boolean(p.labs);});
+  else if(filt==='img') l=l.filter(function(p){return Boolean(p.img);});
   return l;
 }
 
 function renderTbl(){
   var el=document.getElementById('ptbl');
   if(tab==='miles'){renderMiles();return;}
-  var l=getList();
   var h='<div class="th"><span>BED</span><span>PATIENT</span><span>ESI</span><span>CHIEF COMPLAINT</span><span>RISK FLAGS</span></div>';
+  if(loading){
+    el.innerHTML=h+'<div class="emsg">Loading command center data...</div>';
+    return;
+  }
+  if(loadError){
+    el.innerHTML=h+'<div class="emsg">'+esc(loadError)+'<br><br><button class="hbtn b-n" onclick="loadBoard()">Retry</button></div>';
+    return;
+  }
+  var l=getList();
   if(!l.length){
     h+='<div class="emsg">No patients match this filter.<br><br><button class="hbtn b-add" onclick="openAdd()">+ Add Patient</button></div>';
   }
   l.forEach(function(p){
-    h+='<div class="pr e'+p.esi+(p.id===sel?' sel':'')+'" onclick="selPt('+p.id+')">'
+    h+='<div class="pr e'+p.esi+(p.id===sel?' sel':'')+'" onclick="selPt('+jsArg(p.id)+')">'
       +'<div class="bn">'+esc(p.bed)+'</div>'
-      +'<div class="pc"><div class="pi">'+esc(p.init)+'</div><div>'+(p.age||'?')+' '+(p.sex||'')+'</div></div>'
+      +'<div class="pc"><div class="pi">'+esc(p.init)+'</div><div>'+(p.age??'?')+' '+esc(p.sex)+'</div></div>'
       +'<div><span class="eb eb'+p.esi+'">'+p.esi+'</span></div>'
-      +'<div><span class="cb">'+esc(p.cc)+'</span></div>'
-      +'<div class="fgs">'+p.flags.map(function(f){return'<span class="ft '+fcls(f)+'">'+f+'</span>';}).join('')+'</div>'
+      +'<div><span class="cb">'+esc(p.cc||'Uncategorized')+'</span></div>'
+      +'<div class="fgs">'+p.flagMeta.map(function(f){return flagBadge(f,false);}).join('')+'</div>'
       +'</div>';
   });
   el.innerHTML=h;
@@ -537,14 +626,22 @@ function renderTbl(){
 function renderMiles(){
   var el=document.getElementById('ptbl');
   var h='<div class="th" style="grid-template-columns:58px 1fr 48px 120px"><span>Time In</span><span>Next Milestone</span><span>Owner</span><span>AI Assist</span></div>';
+  if(loading){
+    el.innerHTML=h+'<div class="emsg">Loading command center data...</div>';
+    return;
+  }
+  if(loadError){
+    el.innerHTML=h+'<div class="emsg">'+esc(loadError)+'<br><br><button class="hbtn b-n" onclick="loadBoard()">Retry</button></div>';
+    return;
+  }
   pts.forEach(function(p){
     var m=emin(p.t);
     var tc=m>120?'mt-ov':m>60?'mt-wn':'mt-ok';
     h+='<div class="mr">'
       +'<div class="mt '+tc+'">'+etime(p.t)+'</div>'
       +'<div><div class="md">'+esc(p.mile||'—')+'</div>'+(m>120?'<div class="od">OVERDUE</div>':'')+'<div class="mm">Bed '+esc(p.bed)+' · '+esc(p.init)+'</div></div>'
-      +'<div><span class="ow o'+p.own+'">'+p.own+'</span></div>'
-      +'<div><button class="asb" onclick="showAI(\''+esc(p.init)+'\',\''+esc(p.mile||'milestone')+'\')">Assist →</button></div>'
+      +'<div><span class="ow '+ownerClass(p)+'">'+esc(p.own||'None')+'</span></div>'
+      +'<div><button class="asb" onclick="showAI('+jsArg(p.init)+','+jsArg(p.mile||'milestone')+')">Assist →</button></div>'
       +'</div>';
   });
   if(!pts.length) h+='<div class="emsg">No patients on board.</div>';
@@ -554,31 +651,36 @@ function renderMiles(){
 // ============================================================
 // SELECT PATIENT
 // ============================================================
+function clearSelection(message){
+  sel=null;
+  document.getElementById('rpn').textContent='Select a patient';
+  document.getElementById('rpi').textContent='Click any row to view details';
+  document.getElementById('rpbg').innerHTML='';
+  document.getElementById('rpb').innerHTML='<div class="nopt">'+esc(message||'Select a patient to view details')+'</div>';
+}
 function selPt(id){
   sel=id;
   renderTbl();
   var p=pts.find(function(x){return x.id===id;});
   if(!p)return;
   document.getElementById('rpn').textContent=p.init+' / Bed '+p.bed;
-  document.getElementById('rpi').textContent=(p.age||'?')+' '+(p.sex||'')+' · ESI '+p.esi+' · '+p.cc+' · In: '+etime(p.t);
+  document.getElementById('rpi').textContent=(p.age??'?')+' '+p.sex+' · ESI '+p.esi+' · '+(p.cc||'Uncategorized')+' · In: '+etime(p.t);
   var bg='';
   if(isSepsis(p)) bg+='<div class="sbg sbg-r"><div class="sdt" style="background:var(--red)"></div>SEPSIS WATCH</div>';
-  if(p.flags.includes('STROKE!')) bg+='<div class="sbg sbg-o"><div class="sdt" style="background:var(--org)"></div>STROKE ALERT</div>';
-  bg+='<button class="hbtn b-n" style="font-size:9px;padding:3px 7px;margin-top:2px" onclick="openEdit('+id+')">✏ Edit Patient</button>';
+  if(isStroke(p)) bg+='<div class="sbg sbg-o"><div class="sdt" style="background:var(--org)"></div>STROKE ALERT</div>';
+  bg+='<button class="hbtn b-n" style="font-size:9px;padding:3px 7px;margin-top:2px" onclick="openEdit('+jsArg(id)+')">✏ Edit Patient</button>';
   document.getElementById('rpbg').innerHTML=bg;
 
   var b='';
-  // AI Assist
   b+='<div class="sec ais"><div class="aih"><span>🤖 AI ASSIST — '+esc(p.init)+'</span><span class="wo">WORKFLOW ONLY</span></div>'
-    +'<button class="aib" onclick="showAI(\''+esc(p.init)+'\',\'Auto-check delta troponins\')">Auto-check delta trops</button>'
-    +'<button class="aib" onclick="showAI(\''+esc(p.init)+'\',\'Draft order bundle for '+esc(p.cc)+'\')">Draft order bundle + timer</button>'
-    +'<button class="aib" onclick="showAI(\''+esc(p.init)+'\',\'Pending summary: '+esc(p.labs)+' | '+esc(p.img)+'\')">What\'s pending? escalation</button>'
-    +'<button class="aib" onclick="showAI(\''+esc(p.init)+'\',\'Generate procedure note + AVS for '+esc(p.cc)+'\')">Procedure note + AVS draft</button>'
-    +'<button class="aib" onclick="showAI(\''+esc(p.init)+'\',\'Predict fastest dispo path\')">Predict fastest dispo</button>'
+    +'<button class="aib" onclick="showAI('+jsArg(p.init)+','+jsArg('Auto-check delta troponins')+')">Auto-check delta trops</button>'
+    +'<button class="aib" onclick="showAI('+jsArg(p.init)+','+jsArg('Draft order bundle for '+(p.cc||'selected category'))+')">Draft order bundle + timer</button>'
+    +'<button class="aib" onclick="showAI('+jsArg(p.init)+','+jsArg('Pending summary: '+pendingLabel(p))+')">What\'s pending? escalation</button>'
+    +'<button class="aib" onclick="showAI('+jsArg(p.init)+','+jsArg('Generate procedure note + AVS for '+(p.cc||'selected category'))+')">Procedure note + AVS draft</button>'
+    +'<button class="aib" onclick="showAI('+jsArg(p.init)+','+jsArg('Predict fastest dispo path')+')">Predict fastest dispo</button>'
     +'</div>';
 
-  // Imaging
-  if(p.img!=='None'){
+  if(p.img){
     var ovr=emin(p.t)>30;
     b+='<div class="sec"><div class="sh">🖼 IMAGING <span class="sc2 co">1</span></div>'
       +'<div class="ir"><div class="it">'+esc(p.img)+' — '+esc(p.init)+' / Bed '+esc(p.bed)+'</div>'
@@ -587,8 +689,7 @@ function selPt(id){
       +'</div></div>';
   }
 
-  // Labs
-  if(p.labs!=='None'){
+  if(p.labs){
     var lsep=isSepsis(p);
     b+='<div class="sec"><div class="sh">🧪 LABS <span class="sc2 cy">1</span></div>'
       +'<div class="ir"><div class="it">'+esc(p.labs)+' — '+esc(p.init)+' / Bed '+esc(p.bed)+'</div>'
@@ -597,26 +698,23 @@ function selPt(id){
       +'</div></div>';
   }
 
-  // Flags
-  if(p.flags.length){
+  if(p.flagMeta.length){
     b+='<div class="sec"><div class="sh">⚡ ACTIVE RISK FLAGS</div>'
-      +'<div class="ir"><div class="fgs" style="gap:5px">'+p.flags.map(function(f){return'<span class="ft '+fcls(f)+'" style="font-size:10px;padding:3px 7px">'+f+'</span>';}).join('')+'</div></div></div>';
+      +'<div class="ir"><div class="fgs" style="gap:5px">'+p.flagMeta.map(function(f){return flagBadge(f,true);}).join('')+'</div></div></div>';
   }
 
-  // Notes
   if(p.notes){
     b+='<div class="sec"><div class="sh">📋 WORKFLOW NOTES</div>'
       +'<div class="ir"><div style="font-family:var(--mono);font-size:11px;color:var(--txt);line-height:1.6">'+esc(p.notes)+'</div></div></div>';
   }
 
-  // Milestone
   var mm=emin(p.t); var mc=mm>120?'mt-ov':mm>60?'mt-wn':'mt-ok';
   b+='<div class="sec"><div class="sh">⏱ NEXT MILESTONE</div>'
     +'<div class="ir"><div class="mr" style="padding:0;border:none">'
     +'<div class="mt '+mc+'">'+etime(p.t)+'</div>'
     +'<div><div class="md">'+esc(p.mile||'Not set')+'</div></div>'
-    +'<div><span class="ow o'+p.own+'">'+p.own+'</span></div>'
-    +'<button class="asb" onclick="showAI(\''+esc(p.init)+'\',\''+esc(p.mile||'milestone')+'\')">Assist →</button>'
+    +'<div><span class="ow '+ownerClass(p)+'">'+esc(p.own||'None')+'</span></div>'
+    +'<button class="asb" onclick="showAI('+jsArg(p.init)+','+jsArg(p.mile||'milestone')+')">Assist →</button>'
     +'</div></div></div>';
 
   document.getElementById('rpb').innerHTML=b;
@@ -643,14 +741,9 @@ function resetForm(){
   ['f-init','f-bed','f-age','f-ccn','f-mile','f-notes'].forEach(function(id){
     var e=document.getElementById(id); if(e)e.value='';
   });
-  document.getElementById('f-sex').value='';
-  document.getElementById('f-esi').value='';
-  document.getElementById('f-arr').selectedIndex=0;
-  document.getElementById('f-loc').selectedIndex=0;
-  document.getElementById('f-cc').value='';
-  document.getElementById('f-own').selectedIndex=0;
-  document.getElementById('f-labs').value='None';
-  document.getElementById('f-img').value='None';
+  ['f-sex','f-esi','f-arr','f-loc','f-cc','f-own','f-labs','f-img'].forEach(function(id){
+    var e=document.getElementById(id); if(e)e.value='';
+  });
   document.querySelectorAll('.fo').forEach(function(e){e.classList.remove('on');});
 }
 function openAdd(){
@@ -668,72 +761,75 @@ function openEdit(id){
   document.getElementById('del-btn').style.display='block';
   document.getElementById('f-init').value=p.init;
   document.getElementById('f-bed').value=p.bed;
-  document.getElementById('f-age').value=p.age||'';
+  document.getElementById('f-age').value=p.age??'';
   document.getElementById('f-sex').value=p.sex||'';
   document.getElementById('f-esi').value=p.esi;
-  document.getElementById('f-arr').value=p.arr||'Walk-in';
-  document.getElementById('f-loc').value=p.loc||'Main ED';
-  document.getElementById('f-cc').value=p.cc||'';
+  document.getElementById('f-arr').value=p.arrId||'';
+  document.getElementById('f-loc').value=p.locId||'';
+  document.getElementById('f-cc').value=p.ccId||'';
   document.getElementById('f-ccn').value=p.ccn||'';
-  document.getElementById('f-own').value=p.own||'MD';
+  document.getElementById('f-own').value=p.ownId||'';
   document.getElementById('f-mile').value=p.mile||'';
-  document.getElementById('f-labs').value=p.labs||'None';
-  document.getElementById('f-img').value=p.img||'None';
+  document.getElementById('f-labs').value=p.labId||'';
+  document.getElementById('f-img').value=p.imgId||'';
   document.getElementById('f-notes').value=p.notes||'';
   document.querySelectorAll('.fo').forEach(function(e){
-    e.classList.toggle('on',p.flags.includes(e.dataset.flag));
+    e.classList.toggle('on',p.flagIds.includes(e.dataset.flagId));
   });
   document.getElementById('pms-modal').classList.add('show');
 }
 function closePMS(){document.getElementById('pms-modal').classList.remove('show');}
 function tog(el){el.classList.toggle('on');}
 
-function savePt(){
+async function savePt(){
   var init=document.getElementById('f-init').value.trim();
   var bed=document.getElementById('f-bed').value.trim();
-  var esi=parseInt(document.getElementById('f-esi').value);
+  var esi=parseInt(document.getElementById('f-esi').value,10);
   if(!init||!bed||!esi){alert('Required: Initials, Bed Number, ESI Level');return;}
   var flags=[];
-  document.querySelectorAll('.fo.on').forEach(function(e){flags.push(e.dataset.flag);});
+  document.querySelectorAll('.fo.on').forEach(function(e){if(e.dataset.flagId)flags.push(e.dataset.flagId);});
   var d={
-    init:init, bed:bed, esi:esi,
-    age:document.getElementById('f-age').value||'',
-    sex:document.getElementById('f-sex').value,
-    loc:document.getElementById('f-loc').value,
-    arr:document.getElementById('f-arr').value,
-    cc:document.getElementById('f-cc').value||'🩺 Other',
-    ccn:document.getElementById('f-ccn').value,
-    own:document.getElementById('f-own').value,
-    mile:document.getElementById('f-mile').value,
-    labs:document.getElementById('f-labs').value,
-    img:document.getElementById('f-img').value,
-    flags:flags,
+    initials:init,
+    bedNumber:bed,
+    esiLevel:esi,
+    age:document.getElementById('f-age').value||null,
+    sex:document.getElementById('f-sex').value||null,
+    locationId:document.getElementById('f-loc').value||null,
+    arrivalMethodId:document.getElementById('f-arr').value||null,
+    chiefComplaintId:document.getElementById('f-cc').value||null,
+    chiefComplaintDetail:document.getElementById('f-ccn').value,
+    ownerRoleId:document.getElementById('f-own').value||null,
+    nextMilestone:document.getElementById('f-mile').value,
+    labOptionId:document.getElementById('f-labs').value||null,
+    imagingOptionId:document.getElementById('f-img').value||null,
+    riskFlagIds:flags,
     notes:document.getElementById('f-notes').value
   };
-  if(eid){
-    var idx=pts.findIndex(function(x){return x.id===eid;});
-    if(idx>=0){pts[idx]=Object.assign({},pts[idx],d); sel=eid;}
-  } else {
-    d.id=nid++; d.t=Date.now();
-    pts.push(d); sel=d.id;
+  try{
+    var data=await apiRequest(eid?API_BASE+'/patients/'+encodeURIComponent(eid):API_BASE+'/patients',{
+      method:eid?'PATCH':'POST',
+      body:JSON.stringify(d)
+    });
+    var selectedId=data.patient&&data.patient.id?data.patient.id:eid;
+    closePMS();
+    await loadBoard(true);
+    sel=selectedId;
+    if(sel)selPt(sel);
+  }catch(err){
+    alert(err&&err.message?err.message:'Unable to save patient.');
   }
-  closePMS();
-  refresh();
-  selPt(sel);
 }
 
-function delPt(){
-  if(!confirm('Discharge / remove this patient from the board?'))return;
-  pts=pts.filter(function(x){return x.id!==eid;});
-  if(sel===eid){
-    sel=null;
-    document.getElementById('rpn').textContent='Select a patient';
-    document.getElementById('rpi').textContent='Click any row to view details';
-    document.getElementById('rpbg').innerHTML='';
-    document.getElementById('rpb').innerHTML='<div class="nopt">Patient removed from board.</div>';
+async function delPt(){
+  if(!eid||!confirm('Discharge / remove this patient from the board?'))return;
+  try{
+    await apiRequest(API_BASE+'/patients/'+encodeURIComponent(eid),{method:'DELETE'});
+    closePMS();
+    clearSelection('Patient removed from board.');
+    await loadBoard(true);
+  }catch(err){
+    alert(err&&err.message?err.message:'Unable to remove patient.');
   }
-  closePMS();
-  refresh();
 }
 
 // ============================================================
@@ -745,22 +841,22 @@ function openShift(){
     +'<div class="mt3"><strong>Census:</strong> '+pts.length+' patients on board<br>'
     +'<strong>ESI 1-2:</strong> '+pts.filter(function(p){return p.esi<=2;}).length+' critical/emergent<br>'
     +'<strong>ESI 3:</strong> '+pts.filter(function(p){return p.esi===3;}).length+' urgent<br>'
-    +'<strong>Sepsis Watch:</strong> '+sep+'<br>'
-    +'<strong>Pending Labs:</strong> '+pts.filter(function(p){return p.labs!=='None';}).length+' patients<br>'
-    +'<strong>Pending Imaging:</strong> '+pts.filter(function(p){return p.img!=='None';}).length+' patients<br>'
-    +'<strong>Fast Dispo Queue:</strong> '+pts.filter(function(p){return p.flags.includes('FAST DISPO')||p.flags.includes('DISPO READY');}).length+' patients<br><br>'
+    +'<strong>Sepsis Watch:</strong> '+esc(sep)+'<br>'
+    +'<strong>Pending Labs:</strong> '+pts.filter(function(p){return Boolean(p.labs);}).length+' patients<br>'
+    +'<strong>Pending Imaging:</strong> '+pts.filter(function(p){return Boolean(p.img);}).length+' patients<br>'
+    +'<strong>Fast Dispo Queue:</strong> '+pts.filter(isFastDispo).length+' patients<br><br>'
     +'All workflow data is audit-logged per HIPAA requirements. This is coordination only — not a medical record.</div>';
   showInfo('▶ START SHIFT SUMMARY', html);
 }
 
 function openPending(){
   var rows='';
-  pts.filter(function(p){return p.labs!=='None';}).forEach(function(p){
+  pts.filter(function(p){return Boolean(p.labs);}).forEach(function(p){
     rows+='<div class="sr2"><span class="stg" style="background:var(--yel);color:#000">LAB</span>'
       +'<div class="sb2">'+esc(p.labs)+' — '+esc(p.init)+' / Bed '+esc(p.bed)
-      +'<div class="ss">'+etime(p.t)+' in dept · '+esc(p.ccn||p.cc)+'</div></div></div>';
+      +'<div class="ss">'+etime(p.t)+' in dept · '+esc(patientLabel(p))+'</div></div></div>';
   });
-  pts.filter(function(p){return p.img!=='None';}).forEach(function(p){
+  pts.filter(function(p){return Boolean(p.img);}).forEach(function(p){
     var ovr=emin(p.t)>30;
     rows+='<div class="sr2"><span class="stg" style="background:'+(ovr?'var(--red)':'var(--org)')+';color:#000">IMG'+(ovr?' ⚡':'')+'</span>'
       +'<div class="sb2">'+esc(p.img)+' — '+esc(p.init)+' / Bed '+esc(p.bed)
@@ -775,9 +871,9 @@ function openHandoff(){
   pts.slice().sort(function(a,b){return a.esi-b.esi;}).forEach(function(p){
     var tc=p.esi<=2?'ftr':p.esi===3?'fty':'ftg';
     rows+='<div class="sr2"><span class="stg '+tc+'">ESI '+p.esi+'</span>'
-      +'<div class="sb2">'+esc(p.init)+' / Bed '+esc(p.bed)+' — '+esc(p.ccn||p.cc)
-      +'<div class="ss">Owner: '+p.own+' · Time in: '+etime(p.t)+' · '+esc(p.mile||'No milestone')+' · Arr: '+p.arr+'</div>'
-      +(p.flags.length?'<div class="ss">Flags: '+p.flags.join(', ')+'</div>':'')
+      +'<div class="sb2">'+esc(p.init)+' / Bed '+esc(p.bed)+' — '+esc(patientLabel(p))
+      +'<div class="ss">Owner: '+esc(p.own||'None')+' · Time in: '+etime(p.t)+' · '+esc(p.mile||'No milestone')+' · Arr: '+esc(p.arr||'None')+'</div>'
+      +(p.flags.length?'<div class="ss">Flags: '+esc(p.flags.join(', '))+'</div>':'')
       +(p.notes?'<div class="ss">Notes: '+esc(p.notes)+'</div>':'')
       +'</div></div>';
   });
@@ -786,9 +882,9 @@ function openHandoff(){
 
 function showAI(init, task){
   showInfo('🤖 AI WORKFLOW ASSIST',
-    '<div class="hn">⚠ WORKFLOW ONLY · NO AUTO-ORDERS · All clinical decisions by licensed provider only.<br>In production, connects to your EMR FHIR/HL7 API (IT-approved integration required).</div>'
+    '<div class="hn">⚠ WORKFLOW ONLY · NO AUTO-ORDERS · All clinical decisions by licensed provider only.<br>Approved integrations can connect to EMR FHIR/HL7 endpoints.</div>'
     +'<div class="mt3"><strong>Patient:</strong> '+esc(init)+'<br><strong>Requested workflow:</strong> '+esc(task)+'<br><br>'
-    +'This feature would generate structured workflow guidance: suggested order checklists, escalation pathways, note templates, and timing alerts — all for provider review before any action is taken.'
+    +'This feature generates structured workflow guidance: suggested order checklists, escalation pathways, note templates, and timing alerts — all for provider review before any action is taken.'
     +'<br><br>No orders are placed, no data transmitted, no medical decisions made automatically.</div>');
 }
 
@@ -803,8 +899,8 @@ function closeInfo(){document.getElementById('info-ov').classList.remove('show')
 // REFRESH
 // ============================================================
 function refresh(){upStats();upRisk();renderTbl();}
-setInterval(function(){refresh();if(sel)selPt(sel);},30000);
-refresh();
+setInterval(function(){loadBoard(true);},30000);
+loadBoard();
 </script>
 </body>
 </html>
